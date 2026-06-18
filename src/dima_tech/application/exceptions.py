@@ -8,3 +8,7 @@ class AccessError(ApplicationError):
 
 class NotFoundError(ApplicationError):
     """Ошибка если данные не найдены"""
+
+
+class AlreadyExists(ApplicationError):
+    """Сущность уже существует"""

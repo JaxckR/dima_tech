@@ -12,6 +12,7 @@ from dima_tech.application.exceptions import (
     ApplicationError,
     NotFoundError,
     AccessError,
+    AlreadyExists,
 )
 
 logger = logging.getLogger(__name__)
@@ -20,6 +21,7 @@ EXCEPTIONS: Final[dict[type[Exception], int]] = {
     ApplicationError: status.HTTP_400_BAD_REQUEST,
     NotFoundError: status.HTTP_404_NOT_FOUND,
     AccessError: status.HTTP_403_FORBIDDEN,
+    AlreadyExists: status.HTTP_409_CONFLICT,
 }
 
 

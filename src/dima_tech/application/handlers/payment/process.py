@@ -61,7 +61,7 @@ class PaymentProcessHandler:
             created_at=self._clock.now(),
             updated_at=None,
         )
-        self._payment_repository.add(payment)
+        await self._payment_repository.add(payment)
 
         await self._account_repository.increase_balance(
             account.id, Decimal(request.amount)
