@@ -18,7 +18,7 @@ class PaymentProcessRequest:
     transaction_id: TransactionId
     account_id: AccountId
     user_id: UserId
-    amount: str
+    amount: int
     signature: str
 
 
@@ -35,7 +35,7 @@ class PaymentProcessHandler:
             transaction_id=request.transaction_id,
             account_id=request.account_id,
             user_id=request.user_id,
-            amount=request.amount,
+            amount=str(request.amount),
             signature=request.signature,
         ):
             raise ApplicationError()
