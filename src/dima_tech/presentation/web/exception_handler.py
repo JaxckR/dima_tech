@@ -8,10 +8,19 @@ from starlette import status
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
+from dima_tech.application.exceptions import (
+    ApplicationError,
+    NotFoundError,
+    AccessError,
+)
 
 logger = logging.getLogger(__name__)
 
-EXCEPTIONS: Final[dict[type[Exception], int]] = {}
+EXCEPTIONS: Final[dict[type[Exception], int]] = {
+    ApplicationError: status.HTTP_400_BAD_REQUEST,
+    NotFoundError: status.HTTP_404_NOT_FOUND,
+    AccessError: status.HTTP_403_FORBIDDEN,
+}
 
 
 class ErrorResponse(BaseModel):

@@ -18,6 +18,7 @@ class PostgresConfig:
 @dataclass(frozen=True, slots=True)
 class Config:
     database: PostgresConfig
+    secret_key: str
 
 
 def get_config() -> Config:
@@ -27,6 +28,7 @@ def get_config() -> Config:
             password=environ["POSTGRES_PASSWORD"],
             host=environ["POSTGRES_HOST"],
             port=int(environ["POSTGRES_PORT"]),
-            database=environ["POSTGRES_DATABASE"],
+            database=environ["POSTGRES_DB"],
         ),
+        secret_key=environ["SECRET_KEY"],
     )

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from enum import StrEnum
+from enum import IntEnum
 from typing import NewType
 
 from dima_tech.domain.entities.common import IdEntity
@@ -8,9 +8,9 @@ from dima_tech.domain.entities.common import IdEntity
 UserId = NewType("UserId", int)
 
 
-class Role(StrEnum):
-    ADMIN = "admin"
-    USER = "user"
+class Role(IntEnum):
+    USER = 0
+    ADMIN = 1
 
 
 @dataclass(slots=True, frozen=True)
